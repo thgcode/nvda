@@ -515,9 +515,15 @@ class Gecko_ia2(VirtualBuffer):
 
 	def _get_documentConstantIdentifier(self):
 		try:
-			return self.rootNVDAObject.IAccessibleObject.accValue(0)
+			ID = self.rootNVDAObject.IAccessibleObject.accValue(0)
 		except COMError:
-			return None
+			ID = None
+		# Cache the identifier only if we can actually get one.
+		# A document may initially be created with no URL,
+		# such as with Chromium 100 documents.
+		if ID:
+			self.documentConstantIdentifier = ID
+		return ID
 
 	def _getInitialCaretPos(self):
 		initialPos = super(Gecko_ia2,self)._getInitialCaretPos()

@@ -68,8 +68,7 @@ class ChromiumUIATreeInterceptor(web.UIAWebTreeInterceptor):
 
 	def _get_documentConstantIdentifier(self):
 		ID = self.rootNVDAObject.parent._getUIACacheablePropertyValue(UIAHandler.UIA_AutomationIdPropertyId)
-		if ID:
-			self.documentConstantIdentifier = ID
+		self.documentConstantIdentifier = ID
 		return ID
 
 class ChromiumUIADocument(ChromiumUIA):
