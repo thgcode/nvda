@@ -1257,7 +1257,6 @@ class BrowseModeDocumentTreeInterceptor(documentBase.DocumentWithTableNavigation
 	def __init__(self,obj):
 		super(BrowseModeDocumentTreeInterceptor,self).__init__(obj)
 		self._lastProgrammaticScrollTime = None
-		self.documentConstantIdentifier = self.documentConstantIdentifier
 		self._lastFocusObj = None
 		self._objPendingFocusBeforeActivate = None
 		self._hadFirstGainFocus = False

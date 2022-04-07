@@ -422,9 +422,12 @@ class MSHTML(VirtualBuffer):
 
 	def _get_documentConstantIdentifier(self):
 		try:
-			return self.rootNVDAObject.HTMLNode.document.url
+			ID = self.rootNVDAObject.HTMLNode.document.url
 		except COMError:
-			return None
+			ID = None
+		if ID:
+			self.documentConstantIdentifier = ID
+		return ID
 
 	def shouldPassThrough(self, obj, reason=None):
 		try:

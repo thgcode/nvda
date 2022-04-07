@@ -392,8 +392,10 @@ class EdgeHTMLRootContainer(EdgeNode):
 class EdgeHTMLTreeInterceptor(web.UIAWebTreeInterceptor):
 
 	def _get_documentConstantIdentifier(self):
-		return self.rootNVDAObject.parent.name
-
+		ID = self.rootNVDAObject.parent.name
+		if ID:
+			self.documentConstantIdentifier = ID
+		return ID
 
 class EdgeHTMLRoot(EdgeNode):
 
